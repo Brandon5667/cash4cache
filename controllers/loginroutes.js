@@ -3,7 +3,7 @@ const router = require('express').Router();
 const bcrypt = require('bcrypyt');
 
 //post username/password data to the database when the user creates an account
-router.post('/create-account', async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const newUser = req.body;
     newUser.password = await bcrypt.hash(req.body.password, 10);
@@ -21,7 +21,7 @@ router.post('/create-account', async (req, res) => {
 
 
 //post request route to log someone in when they log in
-router.post('/', async (req, res) => {
+router.post('/login', async (req, res) => {
   try{
     const {username, password} = req.body;
 
