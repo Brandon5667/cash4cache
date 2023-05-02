@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Cpu, GraphicsCard, Memory } = require('../models');
+const { cpu, graphicsCard, memory } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
-        const cpuData = await Cpu.findAll();
-        const gpuData = await GraphicsCard.findAll();
-        const hardDriveData = await Memory.findAll();
+        const cpuData = await cpu.findAll();
+        const gpuData = await graphicsCard.findAll();
+        const hardDriveData = await memory.findAll();
 
         const cpus = cpuData.map((project) => project.get({ plain:true }));
         const gpus = gpuData.map((project) => project.get({ plain: true }));
