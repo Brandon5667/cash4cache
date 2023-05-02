@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Cpu, GraphicsCard, Memory } = require('../models');
+const { cpu, graphicsCard, memory } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
