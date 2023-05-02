@@ -56,3 +56,4 @@ CPU.init(
     modelName: 'cpu',
   }
 );
+module.exports = CPU;
