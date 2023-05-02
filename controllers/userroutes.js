@@ -1,6 +1,6 @@
 const auth = require('auth.js');
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User } = require('../models');
 
 //route to grab user's information
 router.get('/profile', async (req,res)=>{
@@ -16,3 +16,5 @@ router.get('/profile', async (req,res)=>{
         console.error(err);
     }
 });
+
+module.exports = router;
