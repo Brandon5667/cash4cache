@@ -2,6 +2,7 @@ const { User } = require('../../models');
 const router = require('express').Router();
 const bcrypt = require('bcrypyt');
 
+//changed casing for push 
 //post username/password data to the database when the user creates an account
 router.post('/login', async (req, res) => {
   try {
