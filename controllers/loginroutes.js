@@ -36,9 +36,9 @@ router.post('/login', async (req, res) => {
     if (!validPassword){
       return res.status(401).render('login', {error: "Incorrect Username or Password."})
     }
-    req.session.logged_in = true; //registers them as logged in after creating an account
+    req.session.logged_in = true; 
     req.session.user_id = user.id;
-    res.redirect('/') //redirects them to the homepage(logged in), after creating an account
+    res.redirect('/');
 
   } catch(err){
     console.error(err);
