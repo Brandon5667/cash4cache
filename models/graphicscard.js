@@ -16,7 +16,7 @@ graphicsCard.init(
       allowNull: false,
     },
     description: {
-        type: DataTypes.VARCHAR(250),
+        type: DataTypes.STRING,
         allowNull: false,
       },
     MSRP: {
