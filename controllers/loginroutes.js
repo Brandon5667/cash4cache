@@ -15,7 +15,6 @@ router.post('/login', async (req, res) => {
     res.redirect('/') //redirects them to the homepage(logged in), after creating an account
   } catch (err) {
     console.error(err);
-    res.status
   }
 });
 
@@ -42,7 +41,7 @@ router.post('/login', async (req, res) => {
     res.redirect('/') //redirects them to the homepage(logged in), after creating an account
 
   } catch(err){
-    res.status(500).send('Server Error')
+    console.error(err);
   }
 });
 
