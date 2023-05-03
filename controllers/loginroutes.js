@@ -7,11 +7,10 @@ const bcrypt = require('bcrypt');
 router.post('/login', async (req, res) => {
   try {
     const{name, email, password} = req.body;
-    const passwordCode = await bcrypt.hash(password, 10);
     const userData = await db.User.create({
       name,
       email,
-      password: passwordCode
+      password
   });
 
     req.session.logged_in = true; //registers them as logged in after creating an account
