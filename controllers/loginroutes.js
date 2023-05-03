@@ -1,6 +1,6 @@
-const { User } = require('../../models');
+const { User } = require('../models');
 const router = require('express').Router();
-const bcrypt = require('bcrypyt');
+const bcrypt = require('bcrypt');
 
 //changed casing for push 
 //post username/password data to the database when the user creates an account
@@ -46,3 +46,4 @@ router.post('/login', async (req, res) => {
   }
 });
 
+module.exports = router;
