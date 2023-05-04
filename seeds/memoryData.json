@@ -1,0 +1,24 @@
+[
+    {
+      "name": "Samsung 990",
+      "description": "PRO SSD 1TB PCIe 4.0 M.2 Internal Solid State Drive, Fastest Speed for Gaming, Heat Control, Direct Storage and Memory Expansion for Video Editing, Heavy",
+      "MSRP": 99.99,
+      "ourPrice": 78,
+      "storageCapacity": "1TB"
+
+    },
+    {
+      "name": "SAMSUNG 870 EVO Series 2.5 1TB",
+      "description": "The latest 870 EVO has indisputable performance, reliability and compatibility built upon Samsung's pioneering technology",
+      "MSRP": 59.99,
+      "ourPrice": 40.00,
+      "storageCapacity": "1TB"
+    },
+    {
+      "name": "Crucial P3 4TB PCIe",
+      "description": "NVMe (PCIe Gen3 x4) technology with up to 3500MB/s sequential reads, random read/write 650K/700K IOPS",
+      "MSRP": 219.99,
+      "ourPrice": 150.00,
+      "storageCapacity": "4TB"
+    }
+  ]
