@@ -13,15 +13,15 @@ const seedDatabase = async () => {
       individualHooks: true,
       returning: true,
     });
-    await Post.bulkCreate(cpuData, {
+    await cpu.bulkCreate(cpuData, {
       individualHooks: true,
       returning: true,
     });
-    await Post.bulkCreate(graphicscard, {
+    await graphicsCard.bulkCreate(graphicscard, {
         individualHooks: true,
         returning: true,
     });
-    await Post.bulkCreate(memoryData, {
+    await memory.bulkCreate(memoryData, {
         individualHooks: true,
         returning: true,
       });
