@@ -31,7 +31,7 @@ router.post('/login', async (req, res) => {
     const user = await db.User.findOne({where: {email}});
     const validPassword = await bcrypt.compare(
       req.body.password,
-      userData.password
+      user.password
       );
 
     if (!user){
@@ -42,7 +42,6 @@ router.post('/login', async (req, res) => {
     }
     req.session.logged_in = true; 
     req.session.user_id = user.id;
-    res.redirect('/');
 
   } catch(err){
     console.error(err);
