@@ -4,8 +4,8 @@
     "description":
     "13th Gen Intel Core i9-13900K desktop processor. Featuring Intel Adaptive Boost Technology, Intel Thermal Velocity Boost, Intel Turbo Boost Max Technology 3.0, and PCIe 5.0 and 4.0 support, DDR5 and DDR4 support, unlocked 13th Gen Intel Core i9 desktop processors are optimized for enthusiast gamers and serious creators and help deliver high performance. Compatible with Intel 700 Series and Intel 600 Series Chipset based motherboards. 125W Processor Base Power.",
     "brand": "Intel",
-    "ourPrice": "469",
-    "MSRP": "569",
+    "ourPrice": 469,
+    "MSRP": 569,
     "cores": "24",
     "threads": "32"
   },
@@ -14,8 +14,8 @@
     "description":
     "13th Gen Intel Core i7-13900K desktop processor. Featuring Intel Turbo Boost Max Technology 3.0, and PCIe 5.0 and 4.0 support, DDR5 and DDR4 support, unlocked 13th Gen Intel Core i7 desktop processors are optimized for gamers and productivity and help deliver high performance. Compatible with Intel 700 Series and Intel 600 Series Chipset based motherboards. 125W Processor Base Power.",
     "brand": "Intel",
-    "ourPrice": "299",
-    "MSRP": "399",
+    "ourPrice": 299,
+    "MSRP": 399,
     "cores": "16",
     "threads": "24"
   },
@@ -24,9 +24,9 @@
     "description":
     "When you want the best for gaming and creating, the 16-core powerhouse processor that can do it all with the highest single-core and multi-core performance from AMD for the most demanding gamers and creators.",
     "brand": "AMD",
-    "ourPrice": "499",
-    "MSRP": "599",
+    "ourPrice": 499,
+    "MSRP": 599,
     "cores": "16",
     "threads": "32"
   }
-];
+]
