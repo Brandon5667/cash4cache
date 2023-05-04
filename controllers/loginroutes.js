@@ -3,6 +3,11 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 
 //changed casing for push 
+
+router.get('/', async (req,res)=>{
+  res.render('login');
+})
+
 //post name/email/password data to the database when the user creates an account
 router.post('/login', async (req, res) => {
   try {
