@@ -5,6 +5,12 @@ class memory extends Model {}
 
 memory.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -14,15 +20,11 @@ memory.init(
         allowNull: false,
       },
     MSRP: {
-      type: DataTypes.STRING, //ex 59.99 - best option?
+      type: DataTypes.DECIMAL, //ex 59.99 - best option?
       allowNull: false,
     },
     ourPrice: {
-        type: DataTypes.STRING, //ex 59.99
-        allowNull: false,
-      },
-    quantity: {
-        type: DataTypes.INTEGER, 
+        type: DataTypes.DECIMAL, //ex 59.99
         allowNull: false,
       },
     storageCapacity: {
