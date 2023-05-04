@@ -16,12 +16,16 @@ CPU.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     brand: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     ourPrice: {
-      type: DataTypes.STRING,
+      type: DataTypes.DECIMAL(10,2),
       allowNull: false,
       validate: {
         isDecimal: true
@@ -34,11 +38,6 @@ CPU.init(
         isDecimal: true
       },
     }, 
-    stock: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 10,
-    },
     cores: {
       type: DataTypes.INTEGER,
       allowNull: false,
