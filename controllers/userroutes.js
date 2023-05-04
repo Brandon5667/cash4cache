@@ -3,7 +3,7 @@ const router = require('express').Router();
 const { User } = require('../models');
 
 //route to grab user's information
-router.get('/profile', async (req,res)=>{
+router.get('/', async (req,res)=>{
     try{
         const user = await db.User.findOne({
             where:{
