@@ -27,10 +27,6 @@ graphicsCard.init(
         type: DataTypes.DECIMAL,
         allowNull: false,
       },
-    quantity: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
     clockSpeed: {
         type: DataTypes.STRING
     },
