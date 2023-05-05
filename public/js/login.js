@@ -1,3 +1,4 @@
+
 //Login 
 const loginFormHandler = async (event) => {
     event.preventDefault();
@@ -6,7 +7,7 @@ const loginFormHandler = async (event) => {
     const password = document.querySelector('#password-login').value.trim();
 
     if (email && password) {
-        const response = await fetch('loginroutes/login', {
+        const response = await fetch('/login/login', {
             method: 'POST',
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' },
@@ -32,7 +33,7 @@ const createFormHandler = async (event) => {
     const password = document.querySelector('#password-create').value.trim();
 
     if (name && email && password) {
-        const response = await fetch('loginroutes/login', {
+        const response = await fetch('/login/create', {
             method: 'POST',
             body: JSON.stringify({ name, email, password }),
             headers: { 'Content-Type': 'application/json' },

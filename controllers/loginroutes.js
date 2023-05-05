@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 })
 
 //post name/email/password data to the database when the user creates an account
-router.post('/login', async (req, res) => {
+router.post('/create', async (req, res) => {
   try {
     const { name, email, password } = req.body;
     const user = await User.create({
@@ -41,9 +41,9 @@ router.post('/login', async (req, res) => {
       user.password
     );
 
-    if (!user) {
-      return res.status(401).render('login', { error: "Incorrect Email or Password." })
-    }
+    // if (!user) {
+    //   return res.status(401).render('login', { error: "Incorrect or Password." })
+    // }
     if (!validPassword) {
       return res.status(401).render('login', { error: "Incorrect Email or Password." })
     }
