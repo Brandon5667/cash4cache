@@ -40,11 +40,11 @@ const createFormHandler = async (event) => {
         });
         if (response.ok) {
             document.location.replace('/');
-        };
-    } else (err) => {
-        console.error(err);
-    }
-
+        }
+        else {
+            alert("Must enter a valid email and password of 8 or more characters")
+        }
+    };
 };
 document
     .querySelector('.create-form')
