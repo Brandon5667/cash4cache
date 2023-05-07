@@ -33,7 +33,7 @@ const createFormHandler = async (event) => {
     const password = document.querySelector('#password-create').value.trim();
 
     if (name && email && password) {
-        const response = await fetch('/login/create', {
+        const response = await fetch('/login/creatuser', {
             method: 'POST',
             body: JSON.stringify({ name, email, password }),
             headers: { 'Content-Type': 'application/json' },
