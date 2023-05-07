@@ -1,3 +1,4 @@
+{{!-- {{#if userData}} --}}
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +20,7 @@
     <div class="container">
       <h2 class="title is-4">CPU Information</h2>
       <ul>
-        {{#each cpuData}}
+        {{#each items.cpuData}}
         <li>
           <strong>{{this.name}}</strong><br>
           <small>{{this.description}}</small><br>
@@ -34,7 +35,7 @@
 
       <h2 class="title is-4">Graphics Card Information</h2>
       <ul>
-        {{#each gpuData}}
+        {{#each items.gpuData}}
         <li>
           <strong>{{this.name}}</strong><br>
           <small>{{this.description}}</small><br>
@@ -47,7 +48,7 @@
 
       <h2 class="title is-4">Memory Information</h2>
       <ul>
-        {{#each hardDriveData}}
+        {{#each items.hardDriveData}}
         <li>
           <strong>{{this.name}}</strong><br>
           <small>{{this.description}}</small><br>
@@ -59,16 +60,17 @@
       </ul>
 
       <h2 class="title is-4">User Information</h2>
-     
-        {{#each userData}}
         <p>
-          Username: {{this.name}}<br>
-          Email: {{this.email}}<br>
+          Username: {{userData.name}}<br>
+          Email: {{userData.email}}<br>
         </p>
-        {{/each}}
+       
      
     </div>
   </section>
 </body>
 
 </html>
+{{!-- {{else}}
+  <p>Not logged in</p>
+{{/if}} --}}
