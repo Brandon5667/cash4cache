@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 })
 
 //post name/email/password data to the database when the user creates an account
-router.post('/createuser', async (req, res) => {
+router.post('/create', async (req, res) => {
   try {
     const { name, email, password } = req.body;
     const user = await User.create({
@@ -25,7 +25,12 @@ router.post('/createuser', async (req, res) => {
     });
 
   } catch (err) {
-    console.error(err);
+    if (err.name === "SequelizeValidationError") {
+      res.status(400).json({message: "Must enter a valid email and password of 8 or more characters"});
+    } else {
+      console.error(err);
+      res.status(500);
+    }
   }
 });
 
@@ -43,7 +48,7 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
-   
+
     const validPassword = await bcrypt.compare(
       password,
       user.password
