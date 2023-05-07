@@ -2,7 +2,7 @@ const searchFormHandler = async (event) => {
     event.preventDefault();
     console.log('search button');
 
-    const keyword = document.querySelector('#search-form').ariaValueMax.trim;
+    const keyword = document.querySelector('#search-form').value.trim();
 
     const response = await fetch('/', {
         method: 'POST',
@@ -12,7 +12,7 @@ const searchFormHandler = async (event) => {
 };
 
 document
-  .querySelector('.search-form')
-  .addEventListener('submit', searchFormHandler);
+  .querySelector('#search-button')
+  .addEventListener('click', searchFormHandler);
 
 

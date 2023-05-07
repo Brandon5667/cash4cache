@@ -28,12 +28,14 @@ router.post('/', async (req, res) => {
         const cpuSearch = await cpu.findAll({ where: {
             description: {[Op.like]: req.body.keyword},
          }});
+         console.log(cpuSearch);
          const searchResults = cpuSearch;
          res.render('homepage', {
             searchResults
         });
     } catch (err) {
-        res.status(400).json(err);
+        res.status(400).json(err,);
+
     }
 
 });
