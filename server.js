@@ -29,7 +29,10 @@ const sess = {
 // TODO: Add a comment describing the functionality of this statement
 app.use(session(sess));
 
-app.engine('handlebars', hbs.engine);
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main',
+  debug: true // Enable debugging
+}));
 app.set('view engine', 'handlebars');
 
 app.use(express.json());

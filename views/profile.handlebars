@@ -1,81 +1,74 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+  <title>User Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css" integrity="sha512-7SzrJ+8x04UV/svJoDYRtFTejhRzX8WJG+yzvYs1sLDBpCJ8WMMojg+GZfJFZiPzOT9CJrmGbz98/2dYg0U+Jg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
-<section class="section">
-  <div class="container">
-    <h2 class="title is-4">CPUs</h2>
-    <div class="columns is-multiline">
-      {{#each cpuData}}
-        <div class="column is-4">
-          <div class="card">
-            <div class="card-header">
-              <p class="card-header-title">{{this.name}}</p>
-            </div>
-            <div class="card-content">
-              <div class="content">
-                <p class="is-size-5">Brand: {{this.brand}}</p>
-                <p class="is-size-5">Cores: {{this.cores}}</p>
-                <p class="is-size-5">Threads: {{this.threads}}</p>
-                <p class="is-size-5">MSRP: ${{this.MSRP}}</p>
-                <p class="is-size-5">Our Price: ${{this.ourPrice}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      {{/each}}
+<body>
+  <section class="hero is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">User Profile</h1>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-4">CPU Information</h2>
+      <ul>
+        {{#each cpuData}}
+        <li>
+          <strong>{{this.name}}</strong><br>
+          <small>{{this.description}}</small><br>
+          <span class="tag is-primary">{{this.brand}}</span><br>
+          Our Price: ${{this.ourPrice}}<br>
+          MSRP: ${{this.MSRP}}<br>
+          Cores: {{this.cores}}<br>
+          Threads: {{this.threads}}<br>
+        </li>
+        {{/each}}
+      </ul>
 
-{{!-- harddrives section --}}
-<section class="section">
-  <div class="container">
-    <h2 class="title is-4">Hard drives</h2>
-    <div class="columns is-multiline">
-      {{#each hardDriveData}}
-        <div class="column is-4">
-          <div class="card">
-            <div class="card-header">
-              <p class="card-header-title">{{this.name}}</p>
-            </div>
-            <div class="card-content">
-              <div class="content">
-                <p class="is-size-5">Description: {{this.description}}</p>
-                <p class="is-size-5">MSRP: {{this.MSRP}}</p>
-                <p class="is-size-5">Our Price: {{this.ourPrice}}</p>
-                <p class="is-size-5">Storage Capacity: ${{this.storageCapacity}}</p>      
-              </div>
-            </div>
-          </div>
-        </div>
-      {{/each}}
+      <h2 class="title is-4">Graphics Card Information</h2>
+      <ul>
+        {{#each gpuData}}
+        <li>
+          <strong>{{this.name}}</strong><br>
+          <small>{{this.description}}</small><br>
+          Our Price: ${{this.ourPrice}}<br>
+          MSRP: ${{this.MSRP}}<br>
+          Clock Speed: {{this.clockSpeed}}<br>
+        </li>
+        {{/each}}
+      </ul>
+
+      <h2 class="title is-4">Memory Information</h2>
+      <ul>
+        {{#each hardDriveData}}
+        <li>
+          <strong>{{this.name}}</strong><br>
+          <small>{{this.description}}</small><br>
+          Our Price: ${{this.ourPrice}}<br>
+          MSRP: ${{this.MSRP}}<br>
+          Storage Capacity: {{this.storageCapacity}}<br>
+        </li>
+        {{/each}}
+      </ul>
+
+      <h2 class="title is-4">User Information</h2>
+     
+        {{#each userData}}
+        <p>
+          Username: {{this.name}}<br>
+          Email: {{this.email}}<br>
+        </p>
+        {{/each}}
+     
     </div>
-  </div>
-</section>
+  </section>
+</body>
 
-
-{{!-- graphics cards --}}
-<section class="section">
-  <div class="container">
-    <h2 class="title is-4">Graphics Cards</h2>
-    <div class="columns is-multiline">
-      {{#each gpuData}}
-        <div class="column is-4">
-          <div class="card">
-            <div class="card-header">
-              <p class="card-header-title">{{this.name}}</p>
-            </div>
-            <div class="card-content">
-              <div class="content">
-                <p class="is-size-5">description: {{this.description}}</p>
-                <p class="is-size-5">MSRP: {{this.MSRP}}</p>
-                <p class="is-size-5">Our Price: {{this.ourPrice}}</p>
-                <p class="is-size-5"> clockSpeed ${{this.clockSpeed}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      {{/each}}
-    </div>
-  </div>
-</section>
+</html>
