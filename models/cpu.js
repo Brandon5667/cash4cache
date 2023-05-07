@@ -25,19 +25,19 @@ CPU.init(
       allowNull: false,
     },
     ourPrice: {
-      type: DataTypes.DECIMAL(10,2),
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
       validate: {
         isDecimal: true
       },
-    }, 
+    },
     MSRP: {
-      type: DataTypes.DECIMAL(10,2),
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
       validate: {
         isDecimal: true
       },
-    }, 
+    },
     cores: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -45,6 +45,13 @@ CPU.init(
     threads: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'User',
+        key: 'id'
+      }
     },
   },
   {
