@@ -1,0 +1,22 @@
+body {
+    display: block;
+}
+
+header {
+    display: inline-block;
+    height: 20%;
+    background-color: rgb(13, 111, 106);
+
+}
+
+h1 {
+    font-size: 30px;
+}
+
+#tag-line {
+    font-size: 20px;
+}
+
+#login-button {
+    margin-right: 10%;
+}
