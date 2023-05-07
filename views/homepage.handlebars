@@ -1,8 +1,10 @@
 {{> banner}}
+<form class="search-form">
 <input class="input is-primary" type="text" placeholder="Primary input">
 <div class="buttons">
-  <button class="button is-primary">Search</button>
+  <button class="button is-primary" type="submit">Search</button>
 </div>
+</form>
 {{#each items as |item|}}
 <div class="card">
   <header class="card-header">
@@ -27,3 +29,5 @@
   </footer> --}}
 </div>
 {{/each}}
+
+<script src="/public/js/homepage.js"></script>

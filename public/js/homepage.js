@@ -1,5 +1,6 @@
 const searchFormHandler = async (event) => {
     event.preventDefault();
+    console.log('search button');
 
     const keyword = document.querySelector('#search-form').ariaValueMax.trim;
 
@@ -9,4 +10,9 @@ const searchFormHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
     });
 };
+
+document
+  .querySelector('.search-form')
+  .addEventListener('submit', searchFormHandler);
+
 

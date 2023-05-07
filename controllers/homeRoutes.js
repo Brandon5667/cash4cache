@@ -23,6 +23,7 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+    console.log('got post');
     try {
         const cpuSearch = await cpu.findAll({ where: {
             description: {[Op.like]: req.body.keyword},
