@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 })
 
 //post name/email/password data to the database when the user creates an account
-router.post('/create', async (req, res) => {
+router.post('/createuser', async (req, res) => {
   try {
     const { name, email, password } = req.body;
     const user = await User.create({
@@ -36,16 +36,24 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     const user = await User.findOne({ where: { email } });
+
+    if (user != email) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+   
     const validPassword = await bcrypt.compare(
       password,
       user.password
     );
 
-    // if (!user) {
-    //   return res.status(401).render('login', { error: "Incorrect or Password." })
-    // }
     if (!validPassword) {
-      return res.status(401).render('login', { error: "Incorrect Email or Password." })
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
     }
 
     req.session.save(() => {
