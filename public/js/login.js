@@ -11,7 +11,7 @@ const loginFormHandler = async (event) => {
             method: 'POST',
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' },
-        }) .catch(error => console.error(error)); 
+        }).catch(error => console.error(error));
         if (response.ok) {
             document.location.replace('/');
         } else {
@@ -33,13 +33,17 @@ const createFormHandler = async (event) => {
     const password = document.querySelector('#password-create').value.trim();
 
     if (name && email && password) {
-        const response = await fetch('/login/creatuser', {
+        const response = await fetch('/login/create', {
             method: 'POST',
             body: JSON.stringify({ name, email, password }),
             headers: { 'Content-Type': 'application/json' },
         });
-        document.location.replace('/');
-    };
+        if (response.ok) {
+            document.location.replace('/');
+        };
+    } else (err) => {
+        console.error(err);
+    }
 
 };
 document
