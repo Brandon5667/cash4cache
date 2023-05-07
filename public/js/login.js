@@ -11,12 +11,12 @@ const loginFormHandler = async (event) => {
             method: 'POST',
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' },
-        });
+        }) .catch(error => console.error(error)); 
         if (response.ok) {
             document.location.replace('/');
-          } else {
+        } else {
             alert('Incorrect Email or Password');
-          }
+        }
     };
 };
 document
@@ -38,9 +38,7 @@ const createFormHandler = async (event) => {
             body: JSON.stringify({ name, email, password }),
             headers: { 'Content-Type': 'application/json' },
         });
-        if (response.ok) {
-            document.location.replace('/');
-    };
+        document.location.replace('/');
     };
 
 };

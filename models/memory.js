@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class memory extends Model {}
+class memory extends Model { }
 
 memory.init(
   {
@@ -16,22 +16,30 @@ memory.init(
       allowNull: false,
     },
     description: {
-        type: DataTypes.TEXT, 
-        allowNull: false,
-      },
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
     MSRP: {
       type: DataTypes.DECIMAL, //ex 59.99 - best option?
       allowNull: false,
     },
     ourPrice: {
-        type: DataTypes.DECIMAL, //ex 59.99
-        allowNull: false,
-      },
+      type: DataTypes.DECIMAL, //ex 59.99
+      allowNull: false,
+    },
     storageCapacity: {
-        type: DataTypes.STRING  //ex 500 GB
+      type: DataTypes.STRING  //ex 500 GB
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'User',
+        key: 'id'
+      }
     },
   },
-  {sequelize,
+  {
+    sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
