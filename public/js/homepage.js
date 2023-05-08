@@ -4,15 +4,19 @@ const searchFormHandler = async (event) => {
 
     const keyword = document.querySelector('#search-form').value.trim();
 
-    const response = await fetch('/', {
+    const response = await fetch('/search', {
         method: 'POST',
         body: JSON.stringify({ keyword }),
         headers: { 'Content-Type': 'application/json' },
-    });
+    }).then( 
+        data => {
+            console.log("data",data);
+        }
+    );
 };
 
-document
-  .querySelector('#search-button')
-  .addEventListener('click', searchFormHandler);
+// document
+//   .querySelector('#search-button')
+//   .addEventListener('click', searchFormHandler);
 
 
