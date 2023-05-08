@@ -37,13 +37,14 @@ router.get('/', auth, async (req, res) => {
       cpuData: cpus,
       gpuData: gpus,
       hardDriveData: hardDrives,
-      userData: userData
+      userData: userData,
     };
+    console.log(userData)
     console.log(items)
-
-    res.render('profile', { items });
+    res.render('profile', { name: userData.name, email: userData.email, items });
   } catch (err) {
     console.error(err);
+    res.redirect('/login');
   }
 });
 
