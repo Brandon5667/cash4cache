@@ -5,7 +5,7 @@ body {
 header {
     display: inline-block;
     height: 20%;
-    background-color: rgb(13, 111, 106);
+    background-color: rgb(75, 111, 13);
 
 }
 
@@ -18,5 +18,5 @@ h1 {
 }
 
 #login-button {
-    margin-right: 10%;
+    
 }
