@@ -3,10 +3,34 @@ const { cpu, graphicsCard, memory } = require('../models');
 const CPU = require('../models/cpu');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/cpu', async (req, res) => {
     try {
 
-        res.render('uploadPage');
+        res.render('uploadCPU');
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+
+    }
+});
+
+router.get('/memory', async (req, res) => {
+    try {
+
+        res.render('uploadMemory');
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+
+    }
+});
+
+router.get('/graphics', async (req, res) => {
+    try {
+
+        res.render('uploadGraphicsCard');
 
     } catch (err) {
         console.log(err);
@@ -16,12 +40,14 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/memory', async (req, res) => {
+    console.log("Hit 1")
     try {
-        const { name, description, msrp, price, storage } = req.body;
+        const { name, description, MSRP, price, storage } = req.body;
+        console.log("Hit 2")
         const user = await memory.create({
             name,
             description,
-            msrp,
+            MSRP,
             price,
             storage
         });
