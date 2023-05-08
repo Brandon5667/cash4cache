@@ -42,15 +42,19 @@ router.get('/graphics', async (req, res) => {
 router.post('/memory', async (req, res) => {
     console.log("Hit 1")
     try {
-        const { name, description, MSRP, price, storage } = req.body;
+        const { name, description, MSRP, ourPrice, storage } = req.body;
         console.log("Hit 2")
+        console.log(ourPrice);
         const user = await memory.create({
             name,
             description,
             MSRP,
-            price,
+            ourPrice,
             storage
-        });
+        })
+        console.log(ourPrice);
+        res.json({ user: user, message: 'Upload successful!' });
+
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -68,6 +72,7 @@ router.post('/graphics', async (req, res) => {
             price,
             speed
         });
+        res.json({ user: user, message: 'Upload successful!' });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -86,6 +91,7 @@ router.post('/cpu', async (req, res) => {
             cores,
             threads
         });
+        res.json({ user: user, message: 'Upload successful!' });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
