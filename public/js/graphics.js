@@ -9,11 +9,11 @@ const createFormHandler = async (event) => {
     console.log(MSRP);
     const ourPrice = document.querySelector('#graphics_price').value.trim();
     console.log(ourPrice);
-    const cores = document.querySelector('#graphics_clockSpeed').value.trim();
+    const clockSpeed = document.querySelector('#graphics_clockSpeed').value.trim();
     console.log(clockSpeed);
 
     if (name && description && MSRP && ourPrice && clockSpeed) {
-        const response = await fetch('/upload/gpu', {
+        const response = await fetch('/upload/graphics', {
             method: 'POST',
             body: JSON.stringify({ name, description, MSRP, ourPrice, clockSpeed }),
             headers: { 'Content-Type': 'application/json' },
