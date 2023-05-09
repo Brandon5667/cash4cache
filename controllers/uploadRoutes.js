@@ -64,13 +64,13 @@ router.post('/memory', async (req, res) => {
 
 router.post('/graphics', async (req, res) => {
     try {
-        const { name, description, msrp, price, storage } = req.body;
+        const { name, description, MSRP, ourPrice, clockSpeed } = req.body;
         const user = await graphicsCard.create({
             name,
             description,
-            msrp,
-            price,
-            speed
+            MSRP,
+            ourPrice,
+            clockSpeed
         });
         res.json({ user: user, message: 'Upload successful!' });
     } catch (err) {
