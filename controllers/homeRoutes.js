@@ -50,4 +50,8 @@ router.post('/search', async (req, res) => {
 
 });
 
+router.get('/mail', async (req, res) => {
+    res.render('mail');
+  });
+
 module.exports = router;
