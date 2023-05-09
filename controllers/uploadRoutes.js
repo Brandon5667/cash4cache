@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { cpu, graphicsCard, memory } = require('../models');
+const { cpu, graphicsCard, memory, User } = require('../models');
 const CPU = require('../models/cpu');
 const withAuth = require('../utils/auth');
 
@@ -42,6 +42,8 @@ router.get('/graphics', async (req, res) => {
 router.post('/memory', async (req, res) => {
     console.log("Hit 1")
     try {
+        const userId = req.session.user_id
+        console.log(userId);
         const { name, description, MSRP, ourPrice, storage } = req.body;
         console.log("Hit 2")
         console.log(ourPrice);
@@ -50,8 +52,10 @@ router.post('/memory', async (req, res) => {
             description,
             MSRP,
             ourPrice,
-            storage
+            storage,
+            userId
         })
+
         console.log(ourPrice);
         res.json({ user: user, message: 'Upload successful!' });
 
@@ -64,14 +68,18 @@ router.post('/memory', async (req, res) => {
 
 router.post('/graphics', async (req, res) => {
     try {
-        const { name, description, MSRP, ourPrice, clockSpeed } = req.body;
+        const userId = req.session.user_id
+        const { name, description, MSRP, ourPrice, clockSpeed, } = req.body;
         const user = await graphicsCard.create({
             name,
             description,
             MSRP,
             ourPrice,
-            clockSpeed
+            clockSpeed,
+            userId
         });
+
+
         res.json({ user: user, message: 'Upload successful!' });
     } catch (err) {
         console.log(err);
@@ -82,6 +90,7 @@ router.post('/graphics', async (req, res) => {
 
 router.post('/cpu', async (req, res) => {
     try {
+        const userId = req.session.user_id
         const { name, description, brand, MSRP, ourPrice, cores, threads } = req.body;
         const user = await CPU.create({
             name,
@@ -90,9 +99,11 @@ router.post('/cpu', async (req, res) => {
             MSRP,
             ourPrice,
             cores,
-            threads
+            threads,
+            userId
         });
-        res.json({ user: user, message: 'Upload successful!' });
+
+        res.json({ user: user,  message: 'Upload successful!' });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
