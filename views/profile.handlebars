@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 
@@ -11,23 +13,16 @@
 <body>
   <section class="hero is-primary is-bold">
     <div class="hero-body">
-      <div class="container">
+      <div class="container is-pulled-left">
         <h1 class="title">User Profile</h1>
-        <h2></h2>
-      </div>
+        <h2>Name: {{name}}<br>
+          Email: {{email}}<br></h2>
+      </div> 
+      <button id="home-button" class="button is-pulled-right">Home</button>
     </div>
   </section>
 
-  <section class="section">
-    <div class="columns">
-      <div class="column is-one-third">
-        <h2 class="title is-4 ">User Information</h2>
-        <p>
-          Username: {{name}}<br>
-          Email: {{email}}<br>
-        </p>
-      </div>
-      <div class="column ">
+      <div class="column has-text-centered">
         <a href="./upload/cpu" class="button is-primary is-medium has-text-right ">Upload CPU</a>
         <a href="./upload/graphics" class="button is-primary is-medium has-text-right ">Upload Graphics Card</a>
         <a href="./upload/memory" class="button is-primary is-medium has-text-right ">Upload Hard Drive</a>
@@ -83,3 +78,4 @@
 </body>
 
 </html>
+<script src="/js/homepagebutton.js"></script>
