@@ -16,10 +16,10 @@ const createFormHandler = async (event) => {
     const threads = document.querySelector('#cpu_threads').value.trim();
     console.log(threads);
 
-    if (name && description && MSRP && price) {
+    if (name && description && MSRP && price && cores && threads) {
         const response = await fetch('/upload/cpu', {
             method: 'POST',
-            body: JSON.stringify({ name, description, MSRP, price, storage }),
+            body: JSON.stringify({ name, description, MSRP, price, cores, threads }),
             headers: { 'Content-Type': 'application/json' },
         });
         console.log("Made Post")

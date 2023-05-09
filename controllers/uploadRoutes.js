@@ -82,11 +82,12 @@ router.post('/graphics', async (req, res) => {
 
 router.post('/cpu', async (req, res) => {
     try {
-        const { name, description, brand, price, cores, threads } = req.body;
+        const { name, description, brand, MSRP, price, cores, threads } = req.body;
         const user = await CPU.create({
             name,
             description,
             brand,
+            MSRP,
             price,
             cores,
             threads
