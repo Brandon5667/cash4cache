@@ -9,17 +9,17 @@ const createFormHandler = async (event) => {
     console.log(brand);
     const MSRP = document.querySelector('#cpu_msrp').value.trim();
     console.log(MSRP);
-    const price = document.querySelector('#cpu_price').value.trim();
-    console.log(price);
+    const ourPrice = document.querySelector('#cpu_price').value.trim();
+    console.log(ourPrice);
     const cores = document.querySelector('#cpu_cores').value.trim();
     console.log(cores);
     const threads = document.querySelector('#cpu_threads').value.trim();
     console.log(threads);
 
-    if (name && description && MSRP && price) {
+    if (name && description && brand && MSRP && ourPrice && cores && threads) {
         const response = await fetch('/upload/cpu', {
             method: 'POST',
-            body: JSON.stringify({ name, description, MSRP, price, storage }),
+            body: JSON.stringify({ name, description, brand, MSRP, ourPrice, cores, threads }),
             headers: { 'Content-Type': 'application/json' },
         });
         console.log("Made Post")
