@@ -19,4 +19,8 @@ const searchFormHandler = async (event) => {
 //   .querySelector('#search-button')
 //   .addEventListener('click', searchFormHandler);
 
+const contactButton = document.getElementById("contact-seller");
 
+contactButton.addEventListener("click", ()=>{
+    document.location.replace('/mail')
+});
