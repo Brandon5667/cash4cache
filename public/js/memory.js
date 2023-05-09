@@ -9,13 +9,13 @@ const createFormHandler = async (event) => {
     console.log(MSRP);
     const ourPrice = document.querySelector('#memory_price').value.trim();
     console.log(ourPrice);
-    const storage = document.querySelector('#memory_storage').value.trim();
-    console.log(storage);
+    const storageCapacity = document.querySelector('#memory_storage').value.trim();
+    console.log(storageCapacity);
 
-    if (name && description && MSRP && ourPrice && storage) {
+    if (name && description && MSRP && ourPrice && storageCapacity) {
         const response = await fetch('/upload/memory', {
             method: 'POST',
-            body: JSON.stringify({ name, description, MSRP, ourPrice, storage }),
+            body: JSON.stringify({ name, description, MSRP, ourPrice, storageCapacity }),
             headers: { 'Content-Type': 'application/json' },
         });
         console.log("MAde Pot")

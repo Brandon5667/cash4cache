@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { cpu, graphicsCard, memory } = require('../models');
+const { cpu, graphicsCard, memory, User } = require('../models');
 const CPU = require('../models/cpu');
 const withAuth = require('../utils/auth');
 
@@ -42,7 +42,9 @@ router.get('/graphics', async (req, res) => {
 router.post('/memory', async (req, res) => {
     console.log("Hit 1")
     try {
-        const { name, description, MSRP, ourPrice, storage } = req.body;
+        const user_id = req.session.user_id
+        console.log(user_id);
+        const { name, description, MSRP, ourPrice, storageCapacity } = req.body;
         console.log("Hit 2")
         console.log(ourPrice);
         const user = await memory.create({
@@ -50,10 +52,12 @@ router.post('/memory', async (req, res) => {
             description,
             MSRP,
             ourPrice,
-            storage
+            storageCapacity,
+            user_id
         })
+
         console.log(ourPrice);
-        res.json({ user: user, message: 'Upload successful!' });
+        res.json({ user: user, email: user.email, message: 'Upload successful!' });
 
     } catch (err) {
         console.log(err);
@@ -64,15 +68,19 @@ router.post('/memory', async (req, res) => {
 
 router.post('/graphics', async (req, res) => {
     try {
-        const { name, description, MSRP, ourPrice, clockSpeed } = req.body;
+        const user_id = req.session.user_id
+        const { name, description, MSRP, ourPrice, clockSpeed, } = req.body;
         const user = await graphicsCard.create({
             name,
             description,
             MSRP,
             ourPrice,
-            clockSpeed
+            clockSpeed,
+            user_id
         });
-        res.json({ user: user, message: 'Upload successful!' });
+
+
+        res.json({ user: user, email:user.email, message: 'Upload successful!' });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -82,6 +90,8 @@ router.post('/graphics', async (req, res) => {
 
 router.post('/cpu', async (req, res) => {
     try {
+        const user_id = req.session.user_id
+        console.log("Hey I'm the " + user_id)
         const { name, description, brand, MSRP, ourPrice, cores, threads } = req.body;
         const user = await CPU.create({
             name,
@@ -90,9 +100,11 @@ router.post('/cpu', async (req, res) => {
             MSRP,
             ourPrice,
             cores,
-            threads
+            threads,
+            user_id
         });
-        res.json({ user: user, message: 'Upload successful!' });
+
+        res.json({ user: user, email: user.email, message: 'Upload successful!' });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

@@ -7,7 +7,8 @@ const cpu = require('./cpu');
 const User = require('./user');
 
 graphicsCard.belongsTo(User,{
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    as: "user"
 });
 
 User.hasMany(graphicsCard,{
@@ -15,7 +16,8 @@ User.hasMany(graphicsCard,{
 });
 
 cpu.belongsTo(User,{
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    as: "user"
 });
 
 User.hasMany(cpu,{
@@ -23,7 +25,8 @@ User.hasMany(cpu,{
 });
 
 memory.belongsTo(User,{
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    as: "user"
 });
 
 User.hasMany(memory,{
